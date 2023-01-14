@@ -48,3 +48,25 @@ function readNumber() {
 }
 
 console.log(readNumber());
+
+// Task 4
+// Напишіть функцію random(min , max), яка генерує випадкове число з плаваючою точкою від min до max (але не включаючи max).
+
+function random(min, max) {
+    return (Math.random() * (max - min) + min).toFixed(10);
+}
+
+console.log(random (1, 5));
+console.log(random (1, 5));
+console.log(random (1, 5));
+
+//Task 5
+
+function randomInteger(min, max) {
+    let num = Math.random() * (max + 1 - min) + min;
+    return Math.floor(num);
+}
+
+console.log(randomInteger (1, 5));
+console.log(randomInteger (1, 5));
+console.log(randomInteger (1, 5));
