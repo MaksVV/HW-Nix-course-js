@@ -29,3 +29,22 @@ function multiplyNumeric(obj) {
 
 multiplyNumeric(obj3);
 console.log(obj3); 
+
+// Task 3
+// Створіть функцію readNumber, яка вимагатиме введення числового значення до тих пір, поки відвідувач його не введе. 
+// Також треба дозволити користувачеві зупинити процес введення, відправивши порожній рядок або натиснувши "Скасувати". У цьому випадку функція повинна повернути null.
+
+function readNumber() {
+    let num;
+
+    do {
+      num = prompt('Введіть число', '');
+    } while (!isFinite(num));
+  
+    if (num === null || num === '') {
+        return null;
+    };
+    return +num;
+}
+
+console.log(readNumber());
