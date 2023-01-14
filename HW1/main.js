@@ -60,7 +60,9 @@ console.log(random (1, 5));
 console.log(random (1, 5));
 console.log(random (1, 5));
 
-//Task 5
+// Task 5
+// Напишіть функцію randomInteger( min , max), яка генерує випадкове ціле число від min до max (включно).
+// Будь-яке число з інтервалу min..max має з'являтися з однаковою ймовірністю.
 
 function randomInteger(min, max) {
     let num = Math.random() * (max + 1 - min) + min;
@@ -70,3 +72,12 @@ function randomInteger(min, max) {
 console.log(randomInteger (1, 5));
 console.log(randomInteger (1, 5));
 console.log(randomInteger (1, 5));
+
+// Task 6
+// Напишіть функцію ucFirst( str ), яка повертає рядок str із великим першим символом.
+
+function ucFirst(str) {
+    return str[0].toUpperCase() + str.slice[1];
+}
+
+console.log(ucFirst('вася'));
