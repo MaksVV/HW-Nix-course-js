@@ -113,5 +113,144 @@ console.log(truncate ( "Усім привіт!", 20));
 // Створіть функцію extractCurrencyValue(str ), яка з такого рядка виділятиме числове значення і повертатиме його.
 
 function extractCurrencyValue(str) {
-    return str.slice(1);
+    return +str.slice(1);
 }
+
+console.log(extractCurrencyValue ('$120') === 120);
+
+// Task 10
+// Напишіть функцію sumInput( ), яка:
+// • Просить користувача ввести значення, використовуючи prompt та зберігає їх у масив.
+// • Закінчує запитувати значення, коли користувач введе не числове значення, порожній рядок або натисне «Скасувати».
+// • Підраховує та повертає суму елементів масиву.
+// PS Нуль 0 – вважається числом, не зупиняйте введення значень під час введення «0».
+
+function sumInput() {
+    let arr = [];
+    while (true) {
+        let value = prompt("Введіть значення","");
+        if (value === "" || value === null || !isFinite(value)) break;
+        arr.push(+value);
+    }
+    
+    let sum = 0;
+    for (let number of arr) {
+        sum += number;
+    }
+
+    // console.log(arr);    
+    alert(`Cумa чисел дорівнює ${sum}`);
+}
+
+sumInput()
+
+// Task 11
+// Чи обов'язковий "else"?
+function checkAge (age) {
+    if (age > 18) {
+        return true;
+    } else {
+        // ...
+        return confirm( ' Батьки дозволили ?');
+    }
+}
+// Чи буде ця функція працювати якось інакше, якщо прибрати else ?
+function checkAge (age) {
+    if (age > 18) {
+        return true;
+    }
+    // ...
+    return confirm( ' Батьки дозволили ?');
+}
+//Чи є хоч одна відмінність у поведінці цього варіанту?
+// Відповідь: На мою думку else не обовязковий, так як в обох випадках confirm вииконеється коли if буде false. Різниці між ними ніякої не має.
+
+// Task 12
+// Наступна функція повертає true якщо параметр age більше 18. В іншому випадку вона ставить питання confirm і повертає його результат.
+// function checkAge (age) {
+//     if (age > 18) {
+//         return true;
+//     } else {
+//         return confirm( ' Батьки дозволили ?');
+//     }
+// }
+
+function checkAge(age) {
+    return age > 18 ? true : confirm('Батьки дозволили?');
+}
+
+function checkAge(age) {
+    return age > 18 || confirm('Батьки дозволили?');
+}
+
+// Task 13
+// Напишіть функцію min(a,b), яка повертає менше чисел a і b.
+
+let min = (a, b) => a < b ? a : b;
+
+console.log(min(2, 5));
+console.log(min(3, -1));
+console.log(min(1, 1));
+
+// Task 14
+// Напишіть функцію pow(x,n ), яка повертає x до ступеня n. Інакше кажучи, множить x на себе n разів і повертає результат.
+
+let x = prompt('Введіть значеняя "x"', ''),
+    n = prompt('Введіть значеняя ступеня "n"', '');
+
+function pow(x, n) {
+    if (n < 1 || n % 1 != 0) {
+        return alert(`Помилка, ступіть ${n} не є натуральни число!!!`)
+    }
+    return alert(`Ваш результат: ${x ** n}`);
+}
+pow(x, n);
+
+// Task 15
+// Замініть код Function Expression стрілочною функцією:
+// function ask(question, yes, no) {
+//     if (confirm(question)) yes( )
+//     else no( );
+//     }
+//     ask (
+//     "Ви згодні?",
+//     function ( ) { alert ("Ви погодилися."); },
+//     function ( ) { alert ("Ви скасували виконання."); }
+// );
+
+let ask = (question, yes, no) => (confirm(question))? yes() : no();
+
+ask("Ви згодні?", () => alert("Ви погодилися."), () => alert("Ви скасували виконання."));
+
+// Task 16
+// Ваш місячний дохід - 3333 папуг. Ви хочете купити у мавп пальму за 8000 папуг.
+// Обчисліть, за який проміжок часу ви назбираєте на пальму, за умови, що ваші щомісячні витрати становлять 1750 папуг.
+
+function timePeriod(income, price, costs) {
+    let time = price / (income - costs);
+    return console.log(`Вам знадобиться ${Math.ceil(time)} місяці(в).`);
+}
+
+timePeriod(3333, 8000, 1750);
+
+// Task 17
+//1. Запитати користувача 10 чисел 2. Якщо число - Позитивне -> нічого не робити - негативна -> отримати їх суму 3. Вивести суму негативних чисел, які запровадив користувач.
+
+function sumNegativeNumbers() {
+    let arr = [];
+    while (true) {
+        let value = prompt("Введіть любі числа 10 разів", "");
+        if (!isFinite(value) || value === null || arr.length > 9) break;
+        arr.push(+value);
+    }
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i] < 0) {
+            sum += arr[i];
+        }
+    }
+    // console.log(arr);    
+    alert(`Cумa негативних чисел дорівнює ${sum}`);
+}
+
+sumNegativeNumbers();
