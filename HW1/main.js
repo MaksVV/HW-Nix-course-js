@@ -77,7 +77,41 @@ console.log(randomInteger (1, 5));
 // Напишіть функцію ucFirst( str ), яка повертає рядок str із великим першим символом.
 
 function ucFirst(str) {
-    return str[0].toUpperCase() + str.slice[1];
+    return str[0].toUpperCase() + str.slice(1);
 }
 
 console.log(ucFirst('вася'));
+
+// Task 7
+// Напишіть функцію checkSpam ( str ), яка повертає true, якщо str містить 'viagra ' або 'XXX', а інакше false.
+
+function checkSpam(str) {
+    let strLower = str.toLowerCase();
+
+    return strLower.includes('viagra') || strLower.includes('xxx');
+}
+
+console.log(checkSpam( 'buy ViAgRA now'));
+console.log(checkSpam( 'free xxxxx '));
+console.log(checkSpam( "innocent rabbit"));
+
+// Task 8
+// Створіть функцію truncate(str , maxlength), яка перевіряє довжину рядка str і, якщо вона перевершує maxlength, замінює кінець str на "...", так, щоб її довжина дорівнювала maxlength .
+
+function truncate(str, maxlength) {
+    if (str.length > maxlength) {
+        return str.slice(0, maxlength - 1) + '…';
+    }
+    return str;
+}
+
+console.log(truncate ( "Ось що мені хотілося б сказати на цю тему:", 20));
+console.log(truncate ( "Усім привіт!", 20));
+
+// Task 9 
+// Є вартість у вигляді рядка "$120". Тобто спочатку йде знак валюти, а потім число.
+// Створіть функцію extractCurrencyValue(str ), яка з такого рядка виділятиме числове значення і повертатиме його.
+
+function extractCurrencyValue(str) {
+    return str.slice(1);
+}
