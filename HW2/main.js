@@ -134,3 +134,64 @@ let arr5 = [ vasya2, petya2, masha2 ];
 console.log(getAverageAge(arr5)); // (25 + 30 + 29) / 3 = 28
 
 // Task 10
+
+let strings = ["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", " кришна ", ":-O"];
+
+let unique = strings.filter((curr, index) => index === strings.indexOf(curr = curr.trim()));
+
+console.log(unique); // кришна, харе, :-O
+
+// Task 11
+
+let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+
+let unique1 = Array.from(new Set(values.map(item=>item)));
+
+console.log(unique1);
+
+// Task 12
+
+// Відповідь:
+// Ці два лічильника counter та counter2 незалежні, counter2 покаже 0,1. 
+// Тому що counter та counter2 створюються різними викликами makeCounter, а тому вони мають різне лексичне середовище.
+// А у кожного лексичного середовиища буде свій count. 
+
+
+// function makeCounter() {
+//     let count = 0;
+//     return function() {
+//          return count++; 
+//     };
+// }
+// let counter = makeCounter();
+// let counter2 = makeCounter();
+// alert (counter ()); // 0
+// alert (counter ()); // 1
+// alert (counter2 ()); //?
+// alert (counter2 ()); //?
+
+// Task 13
+// Відповідь:
+// Лічильник буде працювати, тощу що обидві функції створені в одному лексичного середовищі та мають доступ до однієї змінної count.
+
+function Counter() {
+    let count = 0;
+    this.up = function() {
+      return ++count;
+    };
+    this.down = function() {
+      return --count;
+    };
+}
+  
+let counter = new Counter();
+  
+console.log(counter.up()); //1
+console.log(counter.up()); //2
+console.log(counter.down()); //1
+
+// Task 14
+
+let factorial = n => n ? n * factorial(n - 1) : 1;
+
+console.log(factorial(5));
