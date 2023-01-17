@@ -94,3 +94,43 @@ console.log(`Результат:
 
 // Task 7
 
+let vasya = { name: "Вася", age: 25};
+let petya = { name: "Петя", age: 30};
+let masha = { name: "Маша", age: 28};
+let users = [ vasya, petya, masha ];
+let names = users.map(item => item.name);
+console.log(names); // Вася, Петя, Маша
+
+// Task 8
+
+function sortByAge(arr) {
+    arr.sort((a, b) => a.age - b.age);
+}
+
+let vasya1 = {name : " Вася ", age: 25};
+let petya1 = {name : " Петя ", age: 30};
+let masha1 = {name : " Маша ", age: 28};
+let arr4 = [ vasya1 , petya1 , masha1 ] ;
+
+sortByAge (arr4);
+
+console.log(arr4[0].name); // Вася
+console.log(arr4[1].name); // Маша
+console.log(arr4[2].name); // Петро
+
+// Task 9
+
+function getAverageAge(users) {
+    return users.reduce(function(prev, user){
+        return prev + user.age;
+    }, 0) / users.length; 
+}
+
+let vasya2 = { name: "Вася", age: 25};
+let petya2 = { name: "Петя", age: 30};
+let masha2 = { name: "Маша", age: 29};
+let arr5 = [ vasya2, petya2, masha2 ];
+
+console.log(getAverageAge(arr5)); // (25 + 30 + 29) / 3 = 28
+
+// Task 10
